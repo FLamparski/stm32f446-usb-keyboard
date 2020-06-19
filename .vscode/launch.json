@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "gdb",
+            "request": "launch",
+            "name": "Debug Microcontroller",
+            "preLaunchTask": "cargo build",
+            "target": "${workspaceFolder}\\target\\thumbv7em-none-eabi\\debug\\stm32f446-usb-enumeration",
+            "cwd": "${workspaceRoot}",
+            "gdbpath": "D:\\GNU Tools ARM Embedded\\8 2019-q3-update\\bin\\arm-none-eabi-gdb.exe",
+            "autorun": [
+                "target extended-remote :3333",
+                "set print asm-demangle on",
+                "set backtrace limit 32",
+                "monitor arm semihosting enable",
+                "load",
+                "stepi"
+            ]
+        }
+    ]
+}
